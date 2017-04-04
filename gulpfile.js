@@ -40,8 +40,9 @@ gulp.task('serve', ['build'], function() {
 
     browserSync.init({
         server: "./test",
-        port:8000
+        port:8000,
+        open : false
     });
 
-    gulp.watch("src/**/*", ['build']);
+    gulp.watch("./src/**/**/*.js", ['build']);
 });
