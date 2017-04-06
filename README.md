@@ -7,19 +7,23 @@ Its named as 'qRoute' named after $q of angularJS.
 
 **qRoute** provides an alternative where the page flow is handled in the route configuration with the help of outcomes.
 
+The below example should give a fair idea about how to use the module
+
 ## Example
-###Step 1 : Include the qRoute module in your application
+### Step 1 : Include the qRoute module in your application
 ```javascript
   angular.module('app', ['qRoute']).controller('myController', function($scope,$controller) {
   });
 ```
 
-###Step 2 : Create the route configuration
+### Step 2 : Create the route configuration
 ```javascript
   angular.module('app').config(['$routeProvider',function($routeProvider){
       $routeProvider.when('/',{
         templateUrl : '/home.html',
         controller : 'HomeCtrl',
+        // OUTCOMES mapped here
+        //
         on : {
           'loginOK':'/dashboard'
         }
@@ -33,7 +37,7 @@ Its named as 'qRoute' named after $q of angularJS.
       });
   }]);
 ```
-###Step3: Resolve the outcomes from controller
+### Step3: Resolve the outcomes from controller
 ```javascript
 angular.module('app').controller('HomeCtrl', function($scope,$done,$timeout) {
   console.log("in Home Contoller");
