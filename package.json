@@ -18,7 +18,7 @@
   "author": "Vasudevan PALANI",
   "license": "MIT",
   "dependencies": {
-    "angular":"^1.x.x",
+    "angular":"^1.x.x"
   },
   "devDependencies": {
     "browser-sync": "^2.18.8",
