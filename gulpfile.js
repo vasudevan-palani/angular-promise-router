@@ -1,6 +1,15 @@
 gulp = require('gulp');
 browserSync = require('browser-sync');
 
+gulp.task('dist',()=>{
+  gulp.src('./src/angular-promise-router.js')
+    .pipe(require('gulp-uglifyjs')('angular-promise-router.min.js',{outSourceMap:true}))
+    .pipe(gulp.dest('./dist'));
+
+    gulp.src('./test/myApp.js')
+      .pipe(gulp.dest('./test/app/'));
+});
+
 gulp.task('build',['__router','__angular','__bootstrap','__jquery'],()=>{
   gulp.src('./src/angular-promise-router.js')
     .pipe(gulp.dest('./test/vendor/scripts/'));
@@ -45,4 +54,6 @@ gulp.task('serve', ['build'], function() {
     });
 
     gulp.watch("./src/**/**/*.js", ['build']);
+    gulp.watch("./src/**/**/*.html", ['build']);
+
 });
